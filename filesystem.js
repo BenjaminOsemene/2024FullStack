@@ -1,10 +1,15 @@
+//The filesystem (fs) object provides features or methods for interacting with the file system
+// It can be used to read the contents of a file
+ //It can also be used to write data to files 
+ //As well as appending and deleting files   
+
 // This import the 'fs' module for interacting with the filesystem
 const fs = require('fs');
 
-// The define file path 
+// Then defining the file path 
 const filePath = 'example.txt';
 
-// Write data to the file
+// This Writes data to the file using fs.writeFile
 console.log('Writing to file...');
 fs.writeFile(filePath, 'Hello, World!\n', (err) => {
     if (err) {
@@ -12,7 +17,7 @@ fs.writeFile(filePath, 'Hello, World!\n', (err) => {
     } else {
         console.log('File written successfully.');
 
-        // Using fs.readFile to read the contents of the file and logging contentsor errors to terminal
+        // Using fs.readFile to read the contents of the file and logging contents or errors to terminal
         console.log('Reading from file...');
         fs.readFile(filePath, 'utf8', (err, data) => {
             if (err) {
@@ -20,7 +25,7 @@ fs.writeFile(filePath, 'Hello, World!\n', (err) => {
             } else {
                 console.log('File contents:', data);
 
-                // Using fs.readFile to add content to the end of file
+                // Using fs.appendFile to add content to the end of file
                 console.log('Appending to file...');
                 fs.appendFile(filePath, 'Appending some text.\n', (err) => {
                     if (err) {
@@ -28,7 +33,7 @@ fs.writeFile(filePath, 'Hello, World!\n', (err) => {
                     } else {
                         console.log('File appended successfully.');
 
-                        // This verifies that content is successfully added
+                        // So after appending content to the file,this verifies that the content is successfully added
                         console.log('Reading appended file...');
                         fs.readFile(filePath, 'utf8', (err, data) => {
                             if (err) {
